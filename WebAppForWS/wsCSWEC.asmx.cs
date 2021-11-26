@@ -29,21 +29,21 @@ namespace WebAppForWS
             dt.Columns.Add("ORDER_NO", typeof(String));
             dt.Columns.Add("ATTACH_TYPE_ID", typeof(String));
             dt.Columns.Add("ATTACH_TYPE_NAME", typeof(String));
-            dt.Columns.Add("ATTACH_FILE", typeof(Byte[]));
+            dt.Columns.Add("ATTACH_FILE", typeof(String));
 
             DataRow row = dt.NewRow();
             row["ORDER_NO"] = PI_ORDER_NO;
             row["ATTACH_TYPE_ID"] = "ID1_FRONT";
             row["ATTACH_TYPE_NAME"] = "身分證正面";
             serviceGetFile serviceGetFile = new serviceGetFile();
-            row["ATTACH_FILE"] = serviceGetFile.GetImage("身份證樣張-正面.jpg");
+            row["ATTACH_FILE"] = serviceGetFile.GetImageTest("身份證樣張-正面.jpg");
             dt.Rows.Add(row);
             row = dt.NewRow();
             row["ORDER_NO"] = PI_ORDER_NO;
             row["ATTACH_TYPE_ID"] = "ID1_REAR";
-            row["ATTACH_TYPE_NAME"] = "身分證反面";
+            //row["ATTACH_TYPE_NAME"] = "身分證反面";
             serviceGetFile = new serviceGetFile();
-            row["ATTACH_FILE"] = serviceGetFile.GetImage("身份證樣張-背面.jpg");
+            row["ATTACH_FILE"] = serviceGetFile.GetImageTest("身份證樣張-背面.jpg");
             dt.Rows.Add(row);
 
             ds.Tables.Add(dt);
